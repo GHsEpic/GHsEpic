@@ -26,12 +26,14 @@ def eval_link(link, keywords):
 	
 	data["found_links"] = []
 	for _ in important:
+		link_index = False
 		if "href=" in _:
 			_ = _.split("'")
 			for i, seg in enumerate(_):
 				if "href=" in seg:
 					link_index = i+1
 					break
-		data["found_links"].append(_[link_index])
+		if link_index:
+			data["found_links"].append(_[link_index])
 
 	return data

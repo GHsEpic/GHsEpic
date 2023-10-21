@@ -19,7 +19,7 @@ def eval_link(link, keywords):
 	data["found_keywords"] = {}
 	for _ in content:
 		for kw in keywords:
-			if kw in _:
+			if kw.lower() in _.lower():
 				data["found_keywords"][kw] = _
 
 	return data

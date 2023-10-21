@@ -28,8 +28,8 @@ def eval_link(link, keywords):
 	for _ in important:
 		if "href=" in _:
 			_ = _.split("'")
-			for i, . in enumerate(_):
-				if "href=" in .:
+			for i, seg in enumerate(_):
+				if "href=" in seg:
 					link_index = i+1
 					break
 		data["found_links"].append(_[link_index])

@@ -6,7 +6,7 @@ def google(prompt, n):
     results = [_ for _ in s]
     return results
         
-def eval_link(link):
+def eval_link(link, keywords):
     data = {}
     if not (link.startswith("http://") or link.startswith("https://")):
         link = "http://"+link
@@ -15,4 +15,9 @@ def eval_link(link):
     data["Content-Type"] = response.headers["Content-Type"]
     content = response.content.decode(response.encoding or "UTF-8", errors="ignore").split(">")
     content = [_+">" for _ in content]
-    
+
+	data["found_keywords"] = {}
+	for _ in content:
+		for kw in keywords:
+			if kw in _:
+				data["found_keywords"][kw] = content.index(_)

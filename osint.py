@@ -21,3 +21,5 @@ def eval_link(link, keywords):
 		for kw in keywords:
 			if kw in _:
 				data["found_keywords"][kw] = content.index(_)
+
+	return data
